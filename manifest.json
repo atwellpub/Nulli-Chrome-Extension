@@ -30,6 +30,7 @@
     "fileBrowserHandler",
     "notifications",
     "tabs",
-    "geolocation"
+    "geolocation",
+    "storage"
   ]
 }
