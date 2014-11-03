@@ -290,7 +290,7 @@ var Profiles_Manage = ( function () {
 				confirmButtonText: i18n.get("Yes, delete it!"),
 				closeOnConfirm: false
 			}, function() {
-				delete Profiles_Manage.profiles.profiles[id];
+				delete Profiles_Manage.nulli.profiles[id];
 			
 				Profiles_Manage.save_profiles();
 				Profiles_List.rebuild_table();
