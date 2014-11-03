@@ -8,7 +8,7 @@ Conditionally apply js and css to your browsing experience.
 Installing
 -----
 
-Go to [chrome.nulli.com](http://chrome.nulli.com) to download the release version.
+Go to (link comming) to download the release version.
 
 To access development releases, simply download or clone this code and load as an unpacked extension.
 
