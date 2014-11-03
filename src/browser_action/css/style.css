@@ -1,0 +1,45 @@
+body {
+	font-size:14px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.top-nav-icon {
+	padding-top:3px;
+	padding-right:4px;
+}
+
+.content {
+	padding: 2px;
+}
+
+.setting-label {
+	font-size:13px;
+	text-align:left;
+	color:darkslategray;
+	padding-left: 20px;
+	padding-top: 20px;
+	width:11%;
+}	
+
+.setting-value {
+	text-align:left;
+	color:darkslategray;
+	font-size:14px;
+}
+
+.radio-label {
+	padding-right:20px;
+	float:left;
+}
+
+body .setting-value textarea {
+	height:200px;
+}
+
+.quick-action {
+	cursor:pointer;
+}
+
+a {
+	text-decoration:none;
+}

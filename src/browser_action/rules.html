@@ -1,0 +1,98 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title id="title"></title>
+	
+	<!-- Load jQuery -->	
+	<script src="libraries/jquery.min.js"></script>
+	
+	
+	<!-- Load i18n classes -->
+	<script src="classes/i18n.js"></script>
+	<script src="libraries/i18n.js"></script>
+	
+	<!-- Load setting definitions -->
+	<script src="settings/rules.js"></script>
+	
+	<!-- Load management classes -->
+	<script src="classes/Profiles.List.js"></script>
+	<script src="classes/Profiles.Manage.js"></script>
+	<script src="classes/Navigation.js"></script>
+	
+	<!-- Load Custom Styles  -->
+	<link rel="stylesheet" href="css/style.css">
+	
+	<!-- Load Tablesorter -->
+	<link rel="stylesheet" href="libraries/tablesorter/themes/blue/style.css">
+	<script src="libraries/tablesorter/jquery.tablesorter.min.js"></script>
+	
+	<!-- Load Bootstrap  -->
+	<link rel="stylesheet" href="libraries/BootStrap/bootstrap.css">
+	<link rel="stylesheet" href="libraries/BootStrap/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="libraries/BootStrap/bootstrap.fileupload.css">
+	<script src="libraries/BootStrap/bootstrap.min.js"></script>
+	<script src="libraries/BootStrap/bootstrap.fileupload.js"></script>
+	
+	<!-- Load Notify -->
+	<!-- <script src="libraries/notify.js"></script> -->
+	
+	<!-- Load Sweet Alert -->
+	<script src="libraries/SweetAlert/sweet-alert.min.js"></script> 
+	<link rel="stylesheet" type="text/css" href="libraries/SweetAlert/sweet-alert.css">
+	
+	
+	<!-- Load Google Analytics -->		
+	<!--<script src="libraries/GA/analytics.js"></script>-->
+	<script src="classes/Tracking.js"></script>
+	
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<span class="sr-only" id='text-toggle-navigation'></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <img src='./../../icons/icon48.png' class='top-nav-icon' title='Nulli Engine'> &nbsp;
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+			<li  class="nav-listing active" id='nav-list'><a href="#" id='navlink-manage-rules' ></a></li>
+			<li class="nav-listing" id='nav-add'><a href="#"  id='navlink-add-rules'></a></li>
+			
+		  </ul>
+		
+		  <ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="navlink-extras" > <span class="caret"></span></a>
+			  <ul class="dropdown-menu" role="menu">
+				<li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RE67HDP2UT98Y" id='navlink-donate' ></a></li>
+				<li><a href="http://www.twitter.com/atwellpub"  id='navlink-twitter'></a></li>
+				<li><a href="https://github.com/atwellpub/Nulli-Chrome-Extension"   id='navlink-github'></a></li>
+			  </ul>
+			</li>
+		  </ul>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>	
+	<div class="notices">
+	</div>
+	<div class='content' id='container-list'>
+	</div>
+	<div class='content' id='container-manage'>
+		<nav class="navbar" role="navigation">
+			<ul class="nav nav-pills">
+				<li id='pill-add' class="option-pill"><a href="#"  id='navlink-add-profile'></a></li>
+				<li id='pill-update' class="option-pill"><a href="#"  id='navlink-update-profile'></a></li>
+			</ul>
+		</nav>
+		
+	</div>
+</body>
+</html>
