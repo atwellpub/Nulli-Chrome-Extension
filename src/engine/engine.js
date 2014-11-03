@@ -4,7 +4,7 @@
  */
  
 
-chrome.storage.sync.get( 'profiles' , function(obj) {
+chrome.storage.sync.get( 'nulli' , function(obj) {
 
 	console.log("Nulli has loaded profiles.");
 	console.log(obj);
@@ -16,27 +16,31 @@ chrome.storage.sync.get( 'profiles' , function(obj) {
 
 			init: function() {
 
-				for( var id in obj.profiles ) {
+				for( var id in obj.nulli.profiles ) {
 
-					if ( obj.profiles[id]['profile-toggle'] == 'off' ) {
+					if (  obj.nulli.profiles[id] == null ) {
+						continue;
+					}
+					
+					if ( obj.nulli.profiles[id]['profile-toggle'] == 'off' ) {
 						continue;
 					}
 
 
-					if ( siteuri.indexOf( obj.profiles[id]['search-condition'] ) == -1 ) {
+					if ( siteuri.indexOf( obj.nulli.profiles[id]['search-condition'] ) == -1 ) {
 						continue;
 					}
 
 					
 					/* Evaluate Javascript */
-					if ( typeof obj.profiles[id]['javascript'] != 'undefined' ) {
-						eval(obj.profiles[id]['javascript']);
+					if ( typeof obj.nulli.profiles[id]['javascript'] != 'undefined' ) {
+						eval(obj.nulli.profiles[id]['javascript']);
 					}
 
 					/* Adds CSS */
-					if ( typeof obj.profiles[id]['css'] != 'undefined' ) {
+					if ( typeof obj.nulli.profiles[id]['css'] != 'undefined' ) {
 						var body = document.getElementById('body');
-						body.insertAdjacentHTML('beforeend', '<style type="text/css">'+obj.profiles[id]['css']+'</style>');
+						body.insertAdjacentHTML('beforeend', '<style type="text/css">'+obj.nulli.profiles[id]['css']+'</style>');
 						
 					}
 					

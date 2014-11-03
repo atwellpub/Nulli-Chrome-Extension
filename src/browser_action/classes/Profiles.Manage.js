@@ -291,7 +291,8 @@ var Profiles_Manage = ( function () {
 				closeOnConfirm: false
 			}, function() {
 				delete Profiles_Manage.nulli.profiles[id];
-			
+
+				console.log(Profiles_Manage.nulli.profiles);
 				Profiles_Manage.save_profiles();
 				Profiles_List.rebuild_table();
 				
