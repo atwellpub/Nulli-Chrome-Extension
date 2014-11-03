@@ -42,15 +42,9 @@
 	"prop" : "innerText"
   },
   "i18n_Nav_Extras_Developer": {
-    "message": "@Dev",
+    "message": "@Developer",
 	"description":"Link to developer's twitter account @atwellpub.",
 	"selector" : "#navlink-twitter",
-	"prop" : "innerText"
-  },
-  "i18n_Nav_Extras_Translate": {
-    "message": "Translate",
-	"description":"Link to transifex translations profile.",
-	"selector" : "#navlink-translate",
 	"prop" : "innerText"
   },
   "i18n_Nav_Extras_GitHub": {
