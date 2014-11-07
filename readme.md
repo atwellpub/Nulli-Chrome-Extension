@@ -1,7 +1,7 @@
 Nulli Chrome Extension
 ==========
 
-The official [Nulli](http://nulliapp.com/) chrome extension. 
+The official [Nulli](https://chrome.google.com/webstore/detail/nulli-a-javascript-rules/ninanlohmmendjihiijjjlnihgcgabpa) chrome extension. 
 
 Conditionally apply js and css to your browsing experience. 
 
@@ -12,7 +12,7 @@ Go to (link comming) to download the release version.
 
 To access development releases, simply download or clone this code and load as an unpacked extension.
 
-Source Code: [github.com/atwellpub/chrome](http://github.com/nulli/chrome)
+Source Code: [github.com/atwellpub/chrome](http://github.com/atwellpub/nulli)
 
 
 Unpacked Extension
