@@ -7,8 +7,8 @@ Conditionally apply js and css to your browsing experience.
 
 Installing
 -----
-
-Go to [https://chrome.google.com/webstore/detail/nulli-a-javascript-rules/ninanlohmmendjihiijjjlnihgcgabpa](Nulli Chrome Extension) to download the release version.
+ 
+To download the public version please use the link above.
 
 To access development releases, simply download or clone this code and load as an unpacked extension.
 
