@@ -10,7 +10,7 @@ Installing
  
 To download the public version please use the link above.
 
-To access development releases, simply download or clone this code and load as an unpacked extension.
+To access development releases, download or clone this code and load as an unpacked extension.
 
 Source Code: [github.com/atwellpub/chrome](http://github.com/atwellpub/nulli)
 
