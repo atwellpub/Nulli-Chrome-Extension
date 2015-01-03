@@ -1,122 +1,82 @@
 {
-  "ext_Name": {
-    "message":"Nulli - A Javascript Rules Engine",
-	"description":"Name of the chrome extension",
-	"selector" : null,
-	"prop" : null
-  },
-  "ext_Description": {
-    "message":"Nulli is a conditional rules engine that provides the chrome browser with a way to automate js commands seamlessly while browsing."
-    ,"description":"Description of the chrome extension",
-	"selector" : null,
-	"prop" : null
-  },
-  "i18n_Title": {
-    "message": "Nulli - Management" ,
-	"description":"Html Title.",
-	"selector" : "title",
-	"prop" : "text"
-  },
-  "i18n_Nav_ManageRules": {
-    "message": "Manage Rules",
-	"description":"Menu Item - Open screen that lists all rules.",
-	"selector" : "#navlink-manage-rules",
-	"prop" : "innerText"
-  },
-  "i18n_Nav_AddNewRules": {
-    "message": "Add New Rules",
-	"description":"Menu Item - Opens screen to a new rule.",
-	"selector" : "#navlink-add-rules",
-	"prop" : "innerText"
-  },
-  "i18n_Nav_Extras": {
-    "message": "Extras",
-	"description":"Parent menu for more links.",
-	"selector" : "#navlink-extras",
-	"prop" : "innerText"
-  },
-  "i18n_Nav_Extras_Donate": {
-    "message": "Donate",
-	"description":"Sub Menu Item - Link to donate to the author.",
-	"selector" : "#navlink-donate",
-	"prop" : "innerText"
-  },
-  "i18n_Nav_Extras_Developer": {
-    "message": "@Developer",
-	"description":"Link to developer's twitter account @atwellpub.",
-	"selector" : "#navlink-twitter",
-	"prop" : "innerText"
-  },
-  "i18n_Nav_Extras_GitHub": {
-    "message": "GitHub",
-	"description":"Link to GitHub repository.",
-	"selector" : "#navlink-github",
-	"prop" : "innerText"
-  },
-  "18n_nav_pills_update_profile": {
-    "message": "Update Profile",
-	"description":"Button - updates profile.",
-	"selector" : "#navlink-update-profile",
-	"prop" : "innerText"
-  },
-  "18n_nav_pills_add_profile": {
-    "message": "Add Profile",
-	"description":"Button - adds profile.",
-	"selector" : "#navlink-add-profile",
-	"prop" : "innerText"
-  },
-  "i18n_col_ID": {
-    "message": "ID",
-	"description":"Column Header - Profile Id.",
-	"selector" : "#th-profile-ID",
-	"prop" : "text"
-  },
-  "i18n_col_profile_name": {
-    "message": "Profile Name",
-	"description":"Column Header - Profile Name.",
-	"selector" : "#th-profile-name",
-	"prop" : "innerText"
-  },
-  "i18n_col_profile_actions": {
-    "message": "Quick Actions",
-	"description":"Column Header.",
-	"selector" : "#th-profile-actions",
-	"prop" : "innerText"
-  },
-  "i18n_col_profile_status": {
-    "message" : "Status",
-	"description" : "Column Header - Tells whether profile is on or off.",
-	"selector" : "#th-profile-status",
-	"prop" : "innerText"
-  },
-  "i18n_col_profile_description": {
-    "message" : "Description",
-	"description" : "Column Header - Tells whether profile is on or off.",
-	"selector" : "#th-profile-description",
-	"prop" : "innerText"
-  },
-  "i18n_quick_action_edit_profile": {
-    "message" : "[edit] ",
-	"description" : "Quick action link - edit profile.",
-	"selector" : ".edit-profile",
-	"prop" : "innerText"
-  },
-  "i18n_quick_action_edit_profile_tooltip": {
-    "message" : "Edit Profile",
-	"description" : "tooltip edit profile quick action.",
-	"selector" : ".edit-profile",
-	"prop" : "title"
-  },
-  "i18n_quick_action_delete_profile": {
-    "message" : "[delete] ",
-	"description" : "Quick action link - delete profile.",
-	"selector" : ".delete-profile",
-	"prop" : "innerText"
-  },
-  "i18n_quick_action_delete_profile_tooltip": {
-    "message" : "Delete Profile",
-	"description" : "tooltip for delete quick action",
-	"selector" : ".delete-profile",
-	"prop" : "title"
-  }
+    "i18n_Title": {
+        "message": "Nulli - Gerenciamento",
+        "description": "Html Title."
+    },
+    "ext_Description": {
+        "message": "Nulli é um mecanismo de regras condicionais que fornece ao navegador chrome um modo de automatizar comandos js discretamente durante a navegação.",
+        "description": "Description of the chrome extension"
+    },
+    "i18n_col_profile_status": {
+        "message": "Status",
+        "description": "Column Header - Tells whether profile is on or off."
+    },
+    "i18n_Nav_Extras_Donate": {
+        "message": "Doar",
+        "description": "Sub Menu Item - Link to donate to the author."
+    },
+    "i18n_Nav_Extras": {
+        "message": "Extras",
+        "description": "Parent menu for more links."
+    },
+    "i18n_quick_action_edit_profile": {
+        "message": "[editar] ",
+        "description": "Quick action link - edit profile."
+    },
+    "i18n_Nav_AddNewRules": {
+        "message": "Adicionar novas regras",
+        "description": "Menu Item - Opens screen to a new rule."
+    },
+    "i18n_Nav_ManageRules": {
+        "message": "Gerenciar regras",
+        "description": "Menu Item - Open screen that lists all rules."
+    },
+    "18n_nav_pills_update_profile": {
+        "message": "Atualizar perfil",
+        "description": "Button - updates profile."
+    },
+    "i18n_quick_action_delete_profile": {
+        "message": "[excluir] ",
+        "description": "Quick action link - delete profile."
+    },
+    "i18n_col_ID": {
+        "message": "ID",
+        "description": "Column Header - Profile Id."
+    },
+    "i18n_Nav_Extras_GitHub": {
+        "message": "GitHub",
+        "description": "Link to GitHub repository."
+    },
+    "i18n_Nav_Extras_Developer": {
+        "message": "@Desenvolvedor",
+        "description": "Link to developer's twitter account @atwellpub."
+    },
+    "i18n_quick_action_delete_profile_tooltip": {
+        "message": "Excluir perfil",
+        "description": "tooltip for delete quick action"
+    },
+    "i18n_col_profile_description": {
+        "message": "Descrição",
+        "description": "Column Header - Tells whether profile is on or off."
+    },
+    "i18n_quick_action_edit_profile_tooltip": {
+        "message": "Editar perfil",
+        "description": "tooltip edit profile quick action."
+    },
+    "i18n_col_profile_actions": {
+        "message": "Ações rápidas",
+        "description": "Column Header."
+    },
+    "18n_nav_pills_add_profile": {
+        "message": "Adicionar perfil",
+        "description": "Button - adds profile."
+    },
+    "ext_Name": {
+        "message": "Nulli - Um mecanismo de regras Javascript",
+        "description": "Name of the chrome extension"
+    },
+    "i18n_col_profile_name": {
+        "message": "Nome do perfil",
+        "description": "Column Header - Profile Name."
+    }
 }
