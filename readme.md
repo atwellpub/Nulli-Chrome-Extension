@@ -3,7 +3,7 @@ Nulli Chrome Extension
 
 The official [Nulli](https://chrome.google.com/webstore/detail/nulli-a-javascript-rules/ninanlohmmendjihiijjjlnihgcgabpa) chrome extension. 
 
-An external javascript and css engine for the chrome browser.
+An addon for the javascript and css engine that helps users apply rules to websites.
 
 Installing
 -----
