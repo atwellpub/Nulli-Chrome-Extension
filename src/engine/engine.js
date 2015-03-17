@@ -17,36 +17,33 @@ chrome.storage.sync.get( 'nulli' , function(obj) {
 			init: function() {
 
 				for( var id in obj.nulli.profiles ) {
-					console.log('here');
+
 					if (  obj.nulli.profiles[id] == null ) {
 						continue;
 					}
-					console.log('here2');
+
 					if ( obj.nulli.profiles[id]['profile-toggle'] == 'off' ) {
 						continue;
 					}
-					console.log('here3');
-					console.log(siteuri);
-					console.log(obj.nulli.profiles[id]['search-condition']);
+
 					if ( siteuri.indexOf( obj.nulli.profiles[id]['search-condition'] ) == -1 ) {
 						continue;
 					}
 					
-					
-					
-
 					console.log('Profile loaded:');
 					console.log( obj.nulli.profiles[id]['profile-name'] );
 					
 					/* Evaluate Javascript */
 					if ( typeof obj.nulli.profiles[id]['javascript'] != 'undefined' ) {
+						console.log('loaded js');
 						eval(obj.nulli.profiles[id]['javascript']);
 					}
 
 					/* Adds CSS */
 					if ( typeof obj.nulli.profiles[id]['css'] != 'undefined' ) {
+						console.log('loaded css');
 						var body = document.getElementById('body');
-						body.insertAdjacentHTML('beforeend', '<style type="text/css">'+obj.nulli.profiles[id]['css']+'</style>');
+						document.body.insertAdjacentHTML('beforeend', '<style type="text/css">'+obj.nulli.profiles[id]['css']+'</style>');
 						
 					}
 					

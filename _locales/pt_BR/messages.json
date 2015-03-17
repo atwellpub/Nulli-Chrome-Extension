@@ -3,6 +3,10 @@
         "message": "Nulli - Gerenciamento",
         "description": "Html Title."
     },
+    "i18n_Nav_Extras_Translate": {
+        "message": "Traduzir",
+        "description": "Link to transifex translations profile."
+    },
     "ext_Description": {
         "message": "Nulli é um mecanismo de regras condicionais que fornece ao navegador chrome um modo de automatizar comandos js discretamente durante a navegação.",
         "description": "Description of the chrome extension"
@@ -48,7 +52,7 @@
         "description": "Link to GitHub repository."
     },
     "i18n_Nav_Extras_Developer": {
-        "message": "@Desenvolvedor",
+        "message": "@Dev",
         "description": "Link to developer's twitter account @atwellpub."
     },
     "i18n_quick_action_delete_profile_tooltip": {
