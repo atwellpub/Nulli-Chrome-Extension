@@ -44,7 +44,3 @@ Contributing
 Fork it, make changes, create pull request! 
 
 
-License
------
-
-Open.
