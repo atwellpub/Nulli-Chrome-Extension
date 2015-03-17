@@ -47,8 +47,4 @@ Fork it, make changes, create pull request!
 License
 -----
 
-Shorthand Artistic License. 
-
-Claims liability protection. Claims trademark. Revokes commercial use. Permits private use. Permits private modification. 
-
-Copyright 2014,2015 Hudson Atwell 
+Open.
