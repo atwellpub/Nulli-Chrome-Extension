@@ -1,7 +1,18 @@
 <!doctype html>
 <head>
+	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="libraries/pure/pure-min.css">
+	
+		
+	<!-- Load jQuery -->	
+	<script src="libraries/jquery.min.js"></script>
+	
+	<!-- Load i18n classes -->
+	<script src="libraries/i18n.js"></script>
+	<script src="classes/i18n.js"></script>
+	
+	
 	<style type="text/css">
 		body { width: 150px; }
 	</style>
@@ -11,13 +22,21 @@
   <ul class="">
     <li>
       <a href="rules.html?tab=add" target='_blank'>
-       Add New Rule
+       <span id='add'></span>
       </a>
     </li>
     <li>
       <a href="rules.html?tab=list"  target='_blank'>
-		Manage Rules
+		<span id='manage'></span>
+      </a>
+    </li>   
+    <li>
+      <a style='cursor:pointer' id='selector-btn'  target='_blank'>
+		<span id='selector'></span>
       </a>
     </li>        
   </ul>
 </div>
+
+<!-- Load Selector -->	
+<script src="classes/BrowserActions.js"></script>

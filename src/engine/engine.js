@@ -15,7 +15,7 @@ chrome.storage.sync.get( 'nulli' , function(obj) {
 		var construct = {
 
 			init: function() {
-
+				
 				for( var id in obj.nulli.profiles ) {
 
 					if (  obj.nulli.profiles[id] == null ) {
