@@ -2,25 +2,29 @@
 * Listeners Engine
 */
 var Listeners = ( function () {
-	
-	var power;
+	var open;
 	
 	var App = {
-
+		
 		/**
 		 *	Turn it on
 		 */
 		init: function () {	
 			/* Open your ears */
 			Listeners.listen();
-
+			
 		},
 		listen: function() {
-			Listeners.listen_for_click();
+			Listeners.listen_for_selection_click();
 		},
-		listen_for_click: function() {
+		/**
+		 *  Perform these events when user selects element
+		 */
+		listen_for_selection_click: function() {
 			window.onclick = function() {
-				Controls.openModal();			
+				/* listen for selection and open modal */
+				Controls.openModal();
+				
 			}
 		}
 	};
