@@ -2,10 +2,12 @@
 * Listeners Engine
 */
 var Controls = ( function () {
+	var profiles;
 	
 	var App = {
 
-		init: function () {				
+		init: function ( profiles ) {	
+			Controls.profiles = profiles;
 			Controls.injectModal();
 			Controls.disableLinks();
 		},
@@ -33,7 +35,13 @@ var Controls = ( function () {
 						+' 		<button class="nulli-button">Add rule to existing profile</button>'
 						+'		<button class="nulli-button">Add rule to new profile</button>'
 						+'	</div>'
+						+'	<div class="nulli-profiles">'
+						+' 		<select id="nulli-profiles">'
+								console.log(Controls.profiles);
+						+' 		</select>'							
+						+'	</div>'
 						+'</div>';
+					
 			return html;
 		},
 		openModal: function() {
@@ -65,5 +73,6 @@ var Controls = ( function () {
 
 })();
 
-
-Controls.init();
+chrome.storage.sync.get( 'nulli' , function( profiles ) {
+	Controls.init( profiles );
+});
