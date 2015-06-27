@@ -1,5 +1,6 @@
 var Highlight = ( function () {
 	var prevElement;
+	var finalElement;
 	var rule; 
 	
 	var App = {
@@ -10,7 +11,7 @@ var Highlight = ( function () {
 		followCursor: function(e) {
 			var elem = e.target || e.srcElement;
 			
-			if (prevElement!= null) {prevElement.classList.remove('nhighlight');} 
+			if (Highlight.prevElement!= null) {Highlight.prevElement.classList.remove('nhighlight');} 
 			
 			
 			/* design rule */
@@ -25,7 +26,7 @@ var Highlight = ( function () {
 			/* highlight */
 			elem.classList.add('nhighlight');
 			
-			prevElement = elem;
+			Highlight.prevElement = elem;
 		},
 		startFollowingCursor: function() {
 			console.log('highlight enabled');
@@ -34,11 +35,15 @@ var Highlight = ( function () {
 		},
 		stopFollowingCursor: function() {
 			console.log('highlight disabled');
+			Highlight.finalElement = Highlight.prevElement;
 			Highlight.prevElement = null;
 			document.removeEventListener( 'mousemove' , Highlight.followCursor , true);
 			
 			/* add rule to textarea */
 			document.getElementById('nulli-css-rules').value = Highlight.rule;
+		},
+		destroyHighlight: function() {
+			Highlight.finalElement.classList.remove('nhighlight');
 		}
 	};
 
