@@ -10,10 +10,16 @@
 
 function ParseMaster() {
     // constants
-    var $EXPRESSION = 0, $REPLACEMENT = 1, $LENGTH = 2;
+    var $EXPRESSION = 0,
+        $REPLACEMENT = 1,
+        $LENGTH = 2;
     // used to determine nesting levels
-    var $GROUPS = /\(/g, $SUB_REPLACE = /\$\d/, $INDEXED = /^\$\d+$/,
-        $TRIM = /(['"])\1\+(.*)\+\1\1$/, $$ESCAPE = /\\./g, $QUOTE = /'/,
+    var $GROUPS = /\(/g,
+        $SUB_REPLACE = /\$\d/,
+        $INDEXED = /^\$\d+$/,
+        $TRIM = /(['"])\1\+(.*)\+\1\1$/,
+        $$ESCAPE = /\\./g,
+        $QUOTE = /'/,
         $$DELETED = /\x01[^\x01]*\x01/g;
     var self = this;
     // public
@@ -51,10 +57,14 @@ function ParseMaster() {
     };
 
     // private
-    var _escaped = [];  // escaped characters
+    var _escaped = []; // escaped characters
     var _patterns = []; // patterns stored by index
-    var _toString = function(){return "(" + String(this[$EXPRESSION]).slice(1, -1) + ")"};
-    _patterns.toString = function(){return this.join("|")};
+    var _toString = function() {
+        return "(" + String(this[$EXPRESSION]).slice(1, -1) + ")"
+    };
+    _patterns.toString = function() {
+        return this.join("|")
+    };
     // create and add a new pattern to the patterns collection
     function _add() {
         arguments.toString = _toString;
@@ -64,20 +74,24 @@ function ParseMaster() {
     // this is the global replace function (it's quite complicated)
     function _replacement() {
         if (!arguments[0]) return "";
-        var i = 1, j = 0, $pattern;
+        var i = 1,
+            j = 0,
+            $pattern;
         // loop through the patterns
         while ($pattern = _patterns[j++]) {
             // do we have a result?
             if (arguments[i]) {
                 var $replacement = $pattern[$REPLACEMENT];
                 switch (typeof $replacement) {
-                    case "function": return $replacement(arguments, i);
-                    case "number": return arguments[$replacement + i];
+                    case "function":
+                        return $replacement(arguments, i);
+                    case "number":
+                        return arguments[$replacement + i];
                 }
                 var $delete = (arguments[i].indexOf(self.escapeChar) == -1) ? "" :
                     "\x01" + arguments[i] + "\x01";
                 return $delete + $replacement;
-            // skip over references to sub-expressions
+                // skip over references to sub-expressions
             } else i += $pattern[$LENGTH];
         }
     };
@@ -95,6 +109,7 @@ function ParseMaster() {
             return $escapeChar + (_escaped[i++] || "");
         }) : $string;
     };
+
     function _internalEscape($string) {
         return $string.replace($$ESCAPE, "");
     };

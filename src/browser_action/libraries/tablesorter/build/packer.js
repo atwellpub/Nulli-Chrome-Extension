@@ -15,7 +15,8 @@ function pack(_script, _encoding, _fastDecode, _specialChars) {
     // apply all parsing routines
     function _pack($script) {
         var i, $parse;
-        for (i = 0; ($parse = _parsers[i]); i++) {
+        for (i = 0;
+            ($parse = _parsers[i]); i++) {
             $script = $parse($script);
         }
         return $script;
@@ -39,9 +40,15 @@ function pack(_script, _encoding, _fastDecode, _specialChars) {
             // decode all the values we need
             while ($count--) $decode[$encode($count)] = $keywords[$count] || $encode($count);
             // global replacement function
-            $keywords = [function($encoded){return $decode[$encoded]}];
+            $keywords = [
+                function($encoded) {
+                    return $decode[$encoded]
+                }
+            ];
             // generic match
-            $encode = function(){return'\\w+'};
+            $encode = function() {
+                return '\\w+'
+            };
             // reset the loop counter -  we are now doing a global replace
             $count = 1;
         }
@@ -49,6 +56,7 @@ function pack(_script, _encoding, _fastDecode, _specialChars) {
 
     // keep a list of parsing functions, they'll be executed all at once
     var _parsers = [];
+
     function _addParser($parser) {
         _parsers[_parsers.length] = $parser;
     };
@@ -116,7 +124,7 @@ function pack(_script, _encoding, _fastDecode, _specialChars) {
         var $encoded = $keywords.$encoded;
         // encode
         $parser.add($regexp, function($match, $offset) {
-        return $encoded[$match[$offset]];
+            return $encoded[$match[$offset]];
         });
         // if encoded, wrap the script in a decoding function
         return $script && _bootStrap($parser.exec($script), $keywords);
@@ -134,7 +142,9 @@ function pack(_script, _encoding, _fastDecode, _specialChars) {
             var $protected = {}; // "protected" words (dictionary of word->"word")
             var $values = {}; // dictionary of charCode->encoding (eg. 256->ff)
             var $count = {}; // word->count
-            var i = $all.length, j = 0, $word;
+            var i = $all.length,
+                j = 0,
+                $word;
             // count the occurrences - used for sorting later
             do {
                 $word = "$" + $all[--i];
@@ -175,7 +185,11 @@ function pack(_script, _encoding, _fastDecode, _specialChars) {
                 $$encoded[$$sorted[i]] = $values[i];
             } while (++i < $unsorted.length);
         }
-        return {$sorted: $$sorted, $encoded: $$encoded, $protected: $$protected};
+        return {
+            $sorted: $$sorted,
+            $encoded: $$encoded,
+            $protected: $$protected
+        };
     };
 
     // build the boot function used for loading and decoding
@@ -298,7 +312,7 @@ function pack(_script, _encoding, _fastDecode, _specialChars) {
 
     // extract the body of a function
     function _getFunctionBody($function) {
-        with (String($function)) return slice(indexOf("{") + 1, lastIndexOf("}"));
+        with(String($function)) return slice(indexOf("{") + 1, lastIndexOf("}"));
     };
 
     // set the global flag on a RegExp (you have to create a new one)
