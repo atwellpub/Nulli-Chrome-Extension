@@ -8,7 +8,7 @@
         "description": "Link to transifex translations profile."
     },
     "ext_Description": {
-        "message": "Nulli is a conditional rules engine that provides the chrome browser with a way to automate js commands seamlessly while browsing.",
+        "message": "Easily select and remove ads from websites. Nulli is a conditional rules engine that provides the chrome browser with a way to automate js commands seamlessly while browsing.",
         "description": "Description of the chrome extension"
     },
     "i18n_col_profile_status": {

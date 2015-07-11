@@ -1,0 +1,31 @@
+{
+  "name": "nulli",
+  "version": "1.0.0",
+  "description": "Chrome extension",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atwellpub/Nulli-Chrome-Extension.git"
+  },
+  "keywords": [
+    "chrome",
+    "extension",
+    "css",
+    "js",
+    "ad removal"
+  ],
+  "author": "Hudson Atwell",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/atwellpub/Nulli-Chrome-Extension/issues"
+  },
+  "homepage": "https://github.com/atwellpub/Nulli-Chrome-Extension",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.5",
+    "gulp-js-prettify": "*"
+  }
+}
