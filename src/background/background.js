@@ -47,7 +47,8 @@ var Selector = ( function () {
 					/* enable css */
 					chrome.tabs.executeScript({
 						file: 'src/background/css.js'
-					});					
+					});		
+					
 				} else {
 
 				}				

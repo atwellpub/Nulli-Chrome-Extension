@@ -5,7 +5,6 @@ var Highlight = ( function () {
 	
 	var App = {
 		init: function() {
-			console.log('Highlight.init()');
 			Highlight.startFollowingCursor();
 		},
 		followCursor: function(e) {
@@ -13,14 +12,13 @@ var Highlight = ( function () {
 			
 			if (Highlight.prevElement!= null) {Highlight.prevElement.classList.remove('nhighlight');} 
 			
-			
 			/* design rule */
 			if ( elem.id ) {
-				Highlight.rule = 'body #' + elem.id	 + ' { display:hidden } ';
+				Highlight.rule = 'body #' + elem.id	 + ' { display:none !important; } ';
 			} else if ( elem.className ) {
-				Highlight.rule = 'body .' + elem.className	 + ' { display:hidden } ';
+				Highlight.rule = 'body .' + elem.className	 + ' { display:none !important; } ';
 			} else {
-				Highlight.rule = 'No id or classname discovered, go higher.'
+				Highlight.rule = 'No id or classname discovered, go higher or handcraft.'
 			}
 			
 			/* highlight */
@@ -29,12 +27,10 @@ var Highlight = ( function () {
 			Highlight.prevElement = elem;
 		},
 		startFollowingCursor: function() {
-			console.log('highlight enabled');
 			Highlight.prevElement = null;
 			document.addEventListener( 'mousemove' , Highlight.followCursor , true);
 		},
 		stopFollowingCursor: function() {
-			console.log('highlight disabled');
 			Highlight.finalElement = Highlight.prevElement;
 			Highlight.prevElement = null;
 			document.removeEventListener( 'mousemove' , Highlight.followCursor , true);

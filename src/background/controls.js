@@ -33,6 +33,7 @@ var Controls = ( function () {
 			Listeners.listen_for_box_drag();
 			Listeners.listenForModalClose();
 			Listeners.listenForAddActions();
+			Listeners.listenForCreateActions();
 		},
 		getModalHtml: function() {
 			var html =   '<div class="nulli-control-container"  id="nulli-control-container"  >'
@@ -54,7 +55,7 @@ var Controls = ( function () {
 								continue;
 							}
 							
-							html += '<option value="'+ Controls.nulli.profiles[key]['profile-name'] + '" >'+ Controls.nulli.profiles[key]['profile-name'] + '</option>';
+							html += '<option value="'+ key + '" >'+ Controls.nulli.profiles[key]['profile-name'] + '</option>';
 						}
 						
 						html += ' 		</select>'							
@@ -62,7 +63,7 @@ var Controls = ( function () {
 						+'	</div>'
 						+'	<div class="nulli-add-new-profile-container" id="nulli-add-new-profile-container">'
 						+' 		<input type="text" id="nulli-new-profile-name"  placeholder="Enter profile name here">'				
-						+' 		<button class="nulli-button" id="nulli-button-confirm-rule-to-existing-profile">Create!</button>'							
+						+' 		<button class="nulli-button" id="nulli-button-confirm-rule-to-new-profile">Create!</button>'							
 						+'	</div>'
 						+'</div>';
 	
@@ -95,6 +96,12 @@ var Controls = ( function () {
 		dragModalRelease: function() {
 			selected = null;
 		},
+		closeModal: function() {
+			Listeners.modalOpen = false;
+			Listeners.modalClosing = true;
+			Highlight.destroyHighlight();
+			document.getElementById('nulli-control').parentNode.removeChild(document.getElementById('nulli-control'));
+		},
 		/**
 		 *  Disables Links on Page
 		 */
@@ -112,6 +119,39 @@ var Controls = ( function () {
 			for (var i = 0; i < anchors.length; i++) {
 				anchors[i].onclick = function() {return(true);};
 			}
+		},
+		/**
+		 *  Update profile
+		 */
+		updateProfileCSS( profile_id , rules) {
+
+			Controls.nulli['profiles'][ profile_id ]['css'] = Controls.nulli['profiles'][ profile_id ]['css'] + "\r\n\r\n" + rules;
+			
+			chrome.storage.sync.set( {"nulli" : Controls.nulli } );
+		},
+		/**
+		 *  Create new profile based on rules
+		 */
+		createNewProfile( profile_name , rules ) {
+			/* Build new profile obj */
+			var profile = {
+				"profile-name" : profile_name ,
+				"profile-description" : 'created by selector tool' ,
+				"profile-toggle" : 'on' ,
+				"search-condition" : window.location.hostname ,
+				"search-nature" : 'string',
+				"javascript" : '' ,
+				"css" : rules,
+			}
+			
+			
+			Controls.nulli['profiles'].push(profile);
+			console.log(Controls.nulli);
+			
+			chrome.storage.sync.set( {"nulli" : Controls.nulli } );
+		},
+		applyRules( css ) {
+			CSS.injectStyles( css );
 		}
 	};
 

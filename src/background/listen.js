@@ -46,10 +46,7 @@ var Listeners = ( function () {
 		 */
 		listenForModalClose: function() {
 			document.getElementById('nulli-close').onmousedown = function () {
-				Listeners.modalOpen = false;
-				Listeners.modalClosing = true;
-				Highlight.destroyHighlight();
-				document.getElementById('nulli-control').parentNode.removeChild(document.getElementById('nulli-control'));
+				Controls.closeModal();
 				return false;
 			};
 		},
@@ -66,6 +63,34 @@ var Listeners = ( function () {
 				document.getElementById('nulli-rules-preview-container').style.display = 'none';
 				document.getElementById('nulli-add-to-profiles-container').style.display = 'none';
 				document.getElementById('nulli-add-new-profile-container').style.display = 'block';
+			}
+		},
+		listenForCreateActions: function() {
+			/* create new profile */
+			document.getElementById('nulli-button-confirm-rule-to-new-profile').onmousedown = function () { 
+				/* get css */
+				var css = document.getElementById("nulli-css-rules").value;
+				var profile_name = document.getElementById("nulli-new-profile-name").value;
+				
+				Controls.applyRules( css );
+				Controls.createNewProfile( profile_name , css );
+				
+				/* close boxes */
+				Controls.closeModal();
+			}
+			
+			/* add to existing profile */
+			document.getElementById('nulli-button-confirm-rule-to-existing-profile').onmousedown = function () { 
+
+				/* get css */
+				var css = document.getElementById("nulli-css-rules").value;
+				var profile_id = document.getElementById("nulli-selected-profile").value;
+				
+				Controls.applyRules( css );
+				Controls.updateProfileCSS( profile_id , css );
+				
+				/* close boxes */
+				Controls.closeModal();
 			}
 		}
 	};

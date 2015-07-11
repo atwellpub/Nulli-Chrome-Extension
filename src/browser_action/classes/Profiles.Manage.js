@@ -82,9 +82,9 @@ var Profiles_Manage = ( function () {
 		generate_row: function( setting, input ) {
 			var row = $('<tr>' , { class: 'setting-row' } );
 
-			var label = $('<td> ' , { class: 'setting-label' , text: setting.label , title: setting.tooltip } ).appendTo(row);
+			var label = $('<td>' , { class: 'setting-label' , text: setting.label , title: setting.tooltip } ).appendTo(row);
 
-			var value = $('<td> ' , { class: 'setting-value' } );
+			var value = $('<td>' , { class: 'setting-value' } );
 
 			input.appendTo(value);
 

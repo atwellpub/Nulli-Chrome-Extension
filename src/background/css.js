@@ -22,7 +22,7 @@ var CSS = ( function () {
 			CSS.injectStyles('.nulli-actions{ padding-right:10px;text-align:center; }');		
 			CSS.injectStyles('.nulli-add-to-profiles-container{ display:none;padding:20px; }');
 			CSS.injectStyles('.nulli-add-new-profile-container{ display:none;padding:20px; }');
-			CSS.injectStyles('.nulli-control select{ min-width:248px;display:inline-block !important;color:#9b869c;width:auto; font-family: \'Source Code Pro\', Menlo, Consolas, Monaco, monospace; font-size: 0.9rem;   padding: 6px; overflow: none; display: block; border:none; }');
+			CSS.injectStyles('.nulli-control select{ min-width:247px;display:inline-block !important;color:#9b869c;width:auto; font-family: \'Source Code Pro\', Menlo, Consolas, Monaco, monospace; font-size: 0.9rem;   padding: 6px; overflow: none; display: block; border:none; }');
 			CSS.injectStyles('.nulli-control input{ min-width:219px;display:inline-block !important;color:#9b869c;width:auto; font-family: \'Source Code Pro\', Menlo, Consolas, Monaco, monospace; font-size: 0.9rem;   padding: 6px; overflow: none; display: block; border:none; }');
 			CSS.injectStyles('#nulli-css-rules { height:100px;background: #1d1f21;color:#9b869c;width:88%; font-family: \'Source Code Pro\', Menlo, Consolas, Monaco, monospace; font-size: 0.9rem;  background: none;  padding: 15px; overflow: none; display: block; border:none; }');		
 		},
