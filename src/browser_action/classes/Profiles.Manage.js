@@ -34,6 +34,9 @@ var Profiles_Manage = ( function () {
 
 			/* Populate HTML elements */
 			Profiles_Manage.render_settings( rules.settings );
+			
+			/* enable tooltips for labels - breaks table layout */
+			//$('.setting-label').tooltip();
 
 		},
 		/* Loop through settings definitions and create settings */
@@ -79,9 +82,9 @@ var Profiles_Manage = ( function () {
 		generate_row: function( setting, input ) {
 			var row = $('<tr>' , { class: 'setting-row' } );
 
-			var label = $('<td> ' , { class: 'setting-label' , text: setting.label } ).appendTo(row);
+			var label = $('<td>' , { class: 'setting-label' , text: setting.label , title: setting.tooltip } ).appendTo(row);
 
-			var value = $('<td> ' , { class: 'setting-value' } );
+			var value = $('<td>' , { class: 'setting-value' } );
 
 			input.appendTo(value);
 
@@ -332,7 +335,7 @@ var Profiles_Manage = ( function () {
 				"profile-name" : $('#profile-name').val() ,
 				"profile-description" : $('#profile-description').val() ,
 				"profile-toggle" : $('.profile-toggle:checked').val() ,
-				"search-condition" : $('.search-condition').val() ,
+				"search-condition" : $('#search-condition').val() ,
 				"search-nature" : $('.search-nature:checked').val() ,
 				"javascript" : $('#javascript').val() ,
 				"css" : $('#css').val() ,

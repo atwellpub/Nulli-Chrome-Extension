@@ -1,18 +1,18 @@
 Nulli Chrome Extension
 ==========
 
-The official [Nulli](http://nulliapp.com/) chrome extension. 
+The official [Nulli](https://chrome.google.com/webstore/detail/nulli-a-javascript-rules/ninanlohmmendjihiijjjlnihgcgabpa) chrome extension. 
 
-Conditionally apply js and css to your browsing experience. 
+An addon for the javascript and css engine that helps users apply rules to websites.
 
 Installing
 -----
+ 
+To download the public version please use the link above.
 
-Go to (link comming) to download the release version.
+To access development releases, download or clone this code and load as an unpacked extension.
 
-To access development releases, simply download or clone this code and load as an unpacked extension.
-
-Source Code: [github.com/atwellpub/chrome](http://github.com/nulli/chrome)
+Source Code: [github.com/atwellpub/chrome](http://github.com/atwellpub/nulli)
 
 
 Unpacked Extension
@@ -44,11 +44,3 @@ Contributing
 Fork it, make changes, create pull request! 
 
 
-License
------
-
-Shorthand Artistic License. 
-
-Claims liability protection. Claims trademark. Revokes commercial use. Permits private use. Permits private modification. 
-
-Copyright 2014,2015 Hudson Atwell 

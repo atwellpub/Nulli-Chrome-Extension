@@ -15,32 +15,35 @@ chrome.storage.sync.get( 'nulli' , function(obj) {
 		var construct = {
 
 			init: function() {
-
+				
 				for( var id in obj.nulli.profiles ) {
 
 					if (  obj.nulli.profiles[id] == null ) {
 						continue;
 					}
-					
+
 					if ( obj.nulli.profiles[id]['profile-toggle'] == 'off' ) {
 						continue;
 					}
 
-
 					if ( siteuri.indexOf( obj.nulli.profiles[id]['search-condition'] ) == -1 ) {
 						continue;
 					}
-
+					
+					console.log('Profile loaded:');
+					console.log( obj.nulli.profiles[id]['profile-name'] );
 					
 					/* Evaluate Javascript */
 					if ( typeof obj.nulli.profiles[id]['javascript'] != 'undefined' ) {
+						console.log('loaded js');
 						eval(obj.nulli.profiles[id]['javascript']);
 					}
 
 					/* Adds CSS */
 					if ( typeof obj.nulli.profiles[id]['css'] != 'undefined' ) {
+						console.log('loaded css');
 						var body = document.getElementById('body');
-						body.insertAdjacentHTML('beforeend', '<style type="text/css">'+obj.nulli.profiles[id]['css']+'</style>');
+						document.body.insertAdjacentHTML('beforeend', '<style type="text/css">'+obj.nulli.profiles[id]['css']+'</style>');
 						
 					}
 					
