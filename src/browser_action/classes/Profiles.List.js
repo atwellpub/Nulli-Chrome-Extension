@@ -1,8 +1,8 @@
 /*
- * Profiles_List display engine
+ * ProfilesList display engine
  *
  */
-var Profiles_List = (function() {
+var ProfilesList = (function() {
 
     var target_container = '#container-list';
     var html;
@@ -27,13 +27,13 @@ var Profiles_List = (function() {
             cols.appendTo(table);
 
 
-            for (var id in Profiles_Manage.nulli.profiles) {
+            for (var id in ProfilesManage.nulli.profiles) {
 
-                if (!Profiles_Manage.nulli.profiles[id]) {
+                if (!ProfilesManage.nulli.profiles[id]) {
                     continue;
                 }
 
-                var profile = Profiles_List.prepare_defaults(Profiles_Manage.nulli.profiles[id]);
+                var profile = ProfilesList.prepare_defaults(ProfilesManage.nulli.profiles[id]);
 
                 var tr = $('<tr>', {
                     class: 'profile-row',
@@ -134,7 +134,7 @@ var Profiles_List = (function() {
             $('.tablesorter').remove();
 
             /* rebuild table */
-            Profiles_List.build_table();
+            ProfilesList.build_table();
 
             /* Switch to profile update mode */
             Navigation.tab = 'list';

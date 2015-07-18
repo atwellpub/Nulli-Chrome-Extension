@@ -4,7 +4,7 @@ var Navigation = (function() {
     var profile_id;
 
 
-    var App = {                        
+    var App = {
         init: function() {
             Navigation.get_query_params();
             Navigation.get_tab();
@@ -47,7 +47,7 @@ var Navigation = (function() {
                     $('#container-manage').show();
                     $('#pill-add').show();
                     $('#nav-add').addClass('active');
-                    Profiles_Manage.clear_inputs();
+                    ProfilesManage.clear_inputs();
                     break;
                 case 'update':
                     $('#container-manage').show();
@@ -67,7 +67,7 @@ var Navigation = (function() {
         open_profile: function(id) {
             this.tab = 'update';
             this.load_nav_tab();
-            Profiles_Manage.load_profile(id);
+            ProfilesManage.load_profile(id);
         }
 
     };
@@ -99,15 +99,15 @@ jQuery(document).ready(function() {
             nulli = {};
         }
 
-        Profiles_Manage.nulli = nulli;
+        ProfilesManage.nulli = nulli;
         console.log("Loading profiles...");
         console.log(nulli);
 
         /* Load profiles list table */
-        var response_1 = Profiles_List.init();
+        var response_1 = ProfilesList.init();
 
         /* Load profile management container -  settings defined in /settings/rules.js */
-        var response_2 = Profiles_Manage.init(rules);
+        var response_2 = ProfilesManage.init(rules);
 
     });
 
@@ -125,14 +125,14 @@ jQuery(document).ready(function() {
      *  Listener: Save new profile
      */
     $('#pill-add').click(function() {
-        Profiles_Manage.save_new_profile();
+        ProfilesManage.save_new_profile();
     });
 
     /**
      *  Listener: Save new profile
      */
     $('#pill-update').click(function() {
-        Profiles_Manage.update_profile();
+        ProfilesManage.update_profile();
     });
 
     /**
@@ -146,7 +146,7 @@ jQuery(document).ready(function() {
      *  Listener: Delete Profile
      */
     $('body').on('click', '.delete-profile', function() {
-        Profiles_Manage.delete_profile(jQuery(this).attr('rel'));
+        ProfilesManage.delete_profile(jQuery(this).attr('rel'));
     });
 
     /**

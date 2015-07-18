@@ -20,7 +20,7 @@ body {
 	padding-top: 20px;
 	width:11%;
 	cursor:help;
-}	
+}
 
 .setting-value {
 	text-align:left;
@@ -43,4 +43,9 @@ body .setting-value textarea {
 
 a {
 	text-decoration:none;
+}
+
+.tooptip {
+	z-index: 9999999;
+	position:fixed !important;
 }

@@ -1,8 +1,8 @@
 /*
- * Profiles_Manage display engine
+ * ProfilesManage display engine
  *
  */
-var Profiles_Manage = (function() {
+var ProfilesManage = (function() {
 
     var container_manage = '#container-manage';
     var container_list = '#container-list';
@@ -41,10 +41,12 @@ var Profiles_Manage = (function() {
             main_container.appendTo(container_manage);
 
             /* Populate HTML elements */
-            Profiles_Manage.render_settings(rules.settings);
+            ProfilesManage.render_settings(rules.settings);
 
             /* enable tooltips for labels - breaks table layout */
-            //$('.setting-label').tooltip();
+            $('.setting-label').tooltip({
+                container : 'body'
+            });
 
         },
         /* Loop through settings definitions and create settings */
@@ -52,7 +54,7 @@ var Profiles_Manage = (function() {
 
             Object.keys(settings).forEach(function(key) {
 
-                Profiles_Manage.render_setting(key, settings[key]);
+                ProfilesManage.render_setting(key, settings[key]);
 
             });
         },
@@ -64,21 +66,20 @@ var Profiles_Manage = (function() {
             switch (setting.type) {
 
                 case 'text':
-                    Profiles_Manage.display_text(key, setting);
+                    ProfilesManage.display_text(key, setting);
                     break;
                 case 'radio':
-                    Profiles_Manage.display_radio(key, setting);
+                    ProfilesManage.display_radio(key, setting);
                     break;
                 case 'dropdown':
-                    Profiles_Manage.display_textarea(key, setting);
+                    ProfilesManage.display_textarea(key, setting);
                     break;
                 case 'textarea':
-                    Profiles_Manage.display_textarea(key, setting);
+                    ProfilesManage.display_textarea(key, setting);
                     break;
                 case 'fileselect':
-                    Profiles_Manage.display_fileselect(key, setting);
+                    ProfilesManage.display_fileselect(key, setting);
                     break;
-
 
             }
         },
@@ -118,9 +119,9 @@ var Profiles_Manage = (function() {
                 id: setting.id,
                 placeholder: setting.placeholder,
                 required: true
-            })
+            });
 
-            $('#rule-table').append(Profiles_Manage.generate_row(setting, input));
+            $('#rule-table').append(ProfilesManage.generate_row(setting, input));
 
         },
         /* Generate radio inputs */
@@ -128,7 +129,7 @@ var Profiles_Manage = (function() {
             var options = setting.options;
             var html = $('<div/>', {
                 class: 'radio'
-            });;
+            });
 
             Object.keys(options).forEach(function(key) {
 
@@ -156,7 +157,7 @@ var Profiles_Manage = (function() {
                 span.appendTo(html);
             });
 
-            $('#rule-table').append(Profiles_Manage.generate_row(setting, html));
+            $('#rule-table').append(ProfilesManage.generate_row(setting, html));
         },
         /* Generate dropdown inputs */
         display_dropdown: function(key, setting) {
@@ -167,9 +168,9 @@ var Profiles_Manage = (function() {
             var input = $('<textarea>', {
                 class: 'form-control',
                 id: setting.id
-            })
+            });
 
-            $('#rule-table').append(Profiles_Manage.generate_row(setting, input));
+            $('#rule-table').append(ProfilesManage.generate_row(setting, input));
         },
         /* Generate file upload */
         display_fileselect: function(key, setting) {
@@ -210,7 +211,7 @@ var Profiles_Manage = (function() {
             span_4.appendTo(div_1);
             link_1.appendTo(div_1);
 
-            $('#rule-table').append(Profiles_Manage.generate_row(setting, div_1));
+            $('#rule-table').append(ProfilesManage.generate_row(setting, div_1));
         },
         /**
          *	Gets current profile ID set by Navigation class
@@ -218,15 +219,13 @@ var Profiles_Manage = (function() {
         get_profile_id: function() {
             return Navigation.profile_id;
         },
-
-
         /**
          *	Gets next available unused profile id
          */
         get_new_profile_id: function() {
 
             /* See if this object contains any profiles */
-            var count = Profiles_Manage.count_profiles();
+            var count = ProfilesManage.count_profiles();
 
             if (count == 0) {
                 return 1;
@@ -296,7 +295,10 @@ var Profiles_Manage = (function() {
                 toggle.filter('[value=' + this.profile['search-nature'] + ']').prop('checked', true);
             }
 
-            /* profile javascript */
+            /* profile javascript files */
+            $('#javascript-files').val(this.profile['javascript-files']);
+
+            /* profile inline javascript */
             $('#javascript').val(this.profile['javascript']);
 
             /* profile css */
@@ -314,12 +316,13 @@ var Profiles_Manage = (function() {
                 "profile-description": $('#profile-description').val(),
                 "search-condition": $('#search-condition').val(),
                 "search-nature": $('.search-nature:checked').val(),
+                "-files": $('#javascript-files').val(),
                 "javascript": $('#javascript').val(),
                 "css": $('#css').val(),
             }
 
-            Profiles_Manage.save_profiles();
-            Profiles_List.rebuild_table();
+            ProfilesManage.save_profiles();
+            ProfilesList.rebuild_table();
 
 
             /* Add success message */
@@ -333,7 +336,7 @@ var Profiles_Manage = (function() {
             this.profile_id = id;
             this.profile = this.nulli['profiles'][id];
 
-            Profiles_Manage.set_inputs();
+            ProfilesManage.set_inputs();
 
         },
 
@@ -350,11 +353,11 @@ var Profiles_Manage = (function() {
                 confirmButtonText: i18n.get("Yes, delete it!"),
                 closeOnConfirm: false
             }, function() {
-                delete Profiles_Manage.nulli.profiles[id];
+                delete ProfilesManage.nulli.profiles[id];
 
-                console.log(Profiles_Manage.nulli.profiles);
-                Profiles_Manage.save_profiles();
-                Profiles_List.rebuild_table();
+                console.log(ProfilesManage.nulli.profiles);
+                ProfilesManage.save_profiles();
+                ProfilesList.rebuild_table();
 
                 Navigation.tab = 'list';
                 Navigation.load_nav_tab();
@@ -381,26 +384,27 @@ var Profiles_Manage = (function() {
         save_new_profile: function() {
 
             /* get unused profile id */
-            Profiles_Manage.profile_id = this.get_new_profile_id();
+            ProfilesManage.profile_id = this.get_new_profile_id();
 
-            if (typeof Profiles_Manage.nulli.profiles == 'undefined') {
-                Profiles_Manage.nulli.profiles = [];
+            if (typeof ProfilesManage.nulli.profiles == 'undefined') {
+                ProfilesManage.nulli.profiles = [];
             }
 
             /* Build new profile obj */
-            Profiles_Manage.nulli.profiles[this.profile_id] = {
+            ProfilesManage.nulli.profiles[this.profile_id] = {
                 "profile-name": $('#profile-name').val(),
                 "profile-description": $('#profile-description').val(),
                 "profile-toggle": $('.profile-toggle:checked').val(),
                 "search-condition": $('#search-condition').val(),
                 "search-nature": $('.search-nature:checked').val(),
+                "javascript-files": $('#javscript-files').val(),
                 "javascript": $('#javascript').val(),
                 "css": $('#css').val(),
             }
 
             /* Save updated profiles object to storage */
-            Profiles_Manage.save_profiles();
-            Profiles_List.rebuild_table();
+            ProfilesManage.save_profiles();
+            ProfilesList.rebuild_table();
 
             /* Add success message */
             swal(i18n.get("Profile saved!"), "Your Nulli profile has been saved!", "success")
@@ -416,11 +420,11 @@ var Profiles_Manage = (function() {
             /* Log object to console */
             console.log('Saves:');
             console.log({
-                "nulli": Profiles_Manage.nulli
+                "nulli": ProfilesManage.nulli
             });
 
             chrome.storage.sync.set({
-                "nulli": Profiles_Manage.nulli
+                "nulli": ProfilesManage.nulli
             });
         },
     };
