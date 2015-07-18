@@ -51,7 +51,7 @@ var rules = {
         ],
         "required": true
     }, {
-        "id": "javascript_files",
+        "id": "javascript-files",
         "type": "text",
         "tooltip": i18n.get("Javascript files to be loaded if the above conditions evaluate to true. Separate multiple files with commas."),
         "label": i18n.get("Javascript Files"),

@@ -18,7 +18,7 @@
     "js": [
       "src/engine/engine.js"
     ]
-  }], 
+  }],
   "background": {
     "scripts": ["src/background/background.js"]
   },
@@ -28,6 +28,7 @@
     "default_popup": "src/browser_action/index.html"
   },
   "permissions": [
+    "*://*/*",
     "contentSettings",
     "contextMenus",
     "cookies",
@@ -35,7 +36,8 @@
     "tabs",
     "geolocation",
     "storage",
-	"activeTab"
+	"activeTab",
+	"webNavigation"
   ],
   "content_security_policy": "script-src 'self' https://www.google-analytics.com/; object-src 'self'"
 }

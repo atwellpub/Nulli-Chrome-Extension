@@ -1,7 +1,7 @@
 /**
- * Selector Engine
+ * Background Engine
  */
-var Selector = (function() {
+var Background = (function() {
 
     var power;
 
@@ -12,9 +12,9 @@ var Selector = (function() {
          */
         init: function() {
             console.log('Starting Background dot JS');
-            Selector.listen();
+            Background.listenForSelector();
         },
-        listen: function() {
+        listenForSelector: function() {
             /* listen for selector button  */
             chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 
@@ -23,11 +23,8 @@ var Selector = (function() {
                     return;
                 }
 
-                /* Log click */
-                console.log('Selector Clicked');
-
                 /* load Highlight class into DOM */
-                if (!Selector.power) {
+                if (!Background.power) {
 
                     /* enable highlight */
                     chrome.tabs.executeScript({
@@ -54,7 +51,7 @@ var Selector = (function() {
                 }
 
                 /* Tell the boss we're cookin. */
-                Selector.power = false;
+                Background.power = false;
             });
         }
     };
@@ -63,4 +60,4 @@ var Selector = (function() {
 
 })();
 
-Selector.init();
+Background.init();

@@ -316,7 +316,7 @@ var ProfilesManage = (function() {
                 "profile-description": $('#profile-description').val(),
                 "search-condition": $('#search-condition').val(),
                 "search-nature": $('.search-nature:checked').val(),
-                "-files": $('#javascript-files').val(),
+                "javascript-files": $('#javascript-files').val(),
                 "javascript": $('#javascript').val(),
                 "css": $('#css').val(),
             }
@@ -397,7 +397,7 @@ var ProfilesManage = (function() {
                 "profile-toggle": $('.profile-toggle:checked').val(),
                 "search-condition": $('#search-condition').val(),
                 "search-nature": $('.search-nature:checked').val(),
-                "javascript-files": $('#javscript-files').val(),
+                "javascript-files": $('#javascript-files').val(),
                 "javascript": $('#javascript').val(),
                 "css": $('#css').val(),
             }
